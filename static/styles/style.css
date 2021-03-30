@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 90vh;
+  width: auto;
+}
+
+body header {
+  padding: 1em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header img {
+  height: 48px;
+  width: 48px;
+}
+
+body header h4 {
+  font-size: 3em;
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login .login-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.2);
+  border-radius: 28px;
+  width: 80vw;
+  height: 38vw;
+}
+
+.login .login-wrapper .img-wrap {
+  background-image: url("https://design4users.com/wp-content/uploads/2020/02/3d-charachter-design.jpg.pagespeed.ce.WvfIeFBJo1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+
+.login .login-wrapper .text-wrap {
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login .login-wrapper .text-wrap .title {
+  margin-bottom: 1em;
+}
+
+.login .login-wrapper .text-wrap .title h3 {
+  font-size: 2em;
+}
+
+.login .login-wrapper .text-wrap form .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.75em;
+  margin-bottom: 1.5em;
+}
+
+.login .login-wrapper .text-wrap form .col label {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.login .login-wrapper .text-wrap form .col input {
+  padding: 0.5em 0.75em;
+  width: 22em;
+  font-size: 1.1em;
+  border-radius: 0.3em;
+  outline: none;
+  border: 2px solid #919191;
+}
+
+.login .login-wrapper .text-wrap form button {
+  background: #b38cff;
+  border: none;
+  color: #fff;
+  padding: 0.4em 0.75em;
+  width: 19em;
+  font-size: 1.3em;
+  font-weight: 500;
+  border-radius: 0.3em;
+  outline: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.login .login-wrapper .text-wrap form hr {
+  margin-top: 2em;
+  border: 2px solid gainsboro;
+  border-width: 0.8px;
+}
+
+.login .login-wrapper .text-wrap form .row {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+}
+
+.login .login-wrapper .text-wrap form .row p {
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=style.css.map */

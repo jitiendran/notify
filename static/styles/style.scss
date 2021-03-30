@@ -1,0 +1,107 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 90vh;
+  width: auto;
+  header {
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    img {
+      height: 48px;
+      width: 48px;
+    }
+    h4 {
+      font-size: 3em;
+    }
+  }
+}
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.2);
+    border-radius: 28px;
+    width: 80vw;
+    height: 38vw;
+    .img-wrap {
+      background-image: url("https://design4users.com/wp-content/uploads/2020/02/3d-charachter-design.jpg.pagespeed.ce.WvfIeFBJo1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-top-left-radius: 28px;
+      border-bottom-left-radius: 28px;
+    }
+    .text-wrap {
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .title {
+        margin-bottom: 1em;
+        h3 {
+          font-size: 2em;
+        }
+      }
+      form {
+        .col {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75em;
+          label {
+            font-size: 1.3em;
+            font-weight: 500;
+          }
+          input {
+            padding: 0.5em 0.75em;
+            width: 22em;
+            font-size: 1.1em;
+            border-radius: 0.3em;
+            outline: none;
+            border: 2px solid rgb(145, 145, 145);
+          }
+          margin-bottom: 1.5em;
+        }
+        button {
+          background: #b38cff;
+          border: none;
+          color: #fff;
+          padding: 0.4em 0.75em;
+          width: 19em;
+          font-size: 1.3em;
+          font-weight: 500;
+          border-radius: 0.3em;
+          outline: none;
+          cursor: pointer;
+          box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
+        }
+        hr {
+          margin-top: 2em;
+          border: 2px solid gainsboro;
+          border-width: 0.8px;
+        }
+        .row {
+          margin-top: 1em;
+          display: flex;
+          gap: 0.5em;
+          p {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
+}
