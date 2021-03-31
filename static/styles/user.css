@@ -41,4 +41,29 @@ body header .icon-wrap img {
 body header .icon-wrap h4 {
   font-size: 3em;
 }
+
+body header .link-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8em;
+}
+
+body header .link-wrap a {
+  padding: 0.2em 0.5em;
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+body header .link-wrap a:focus {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)), -webkit-gradient(linear, left top, right top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(#fff, #fff), linear-gradient(to right, #00c6ff, #0072ff);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
+  /* this is important */
+  border: 5px solid transparent;
+  border-radius: 0.5em;
+}
 /*# sourceMappingURL=user.css.map */

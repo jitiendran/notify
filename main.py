@@ -21,7 +21,8 @@ def index() :
 def signup():
     queryObject = {
         'Username' : 'Jitiendran',
-        'Email' : '',   
+        'Email' : '',
+        'Image' : '',
         'Password' : '123'
     }
     query = SampleTable.insert_one(queryObject)
@@ -37,9 +38,10 @@ def login() :
 # print('This is the object : ',obj)
 # Username = obj['Username']
 
-@app.route('/User')
+@app.route('/User',methods=['GET'])
 def User() :
-    return render_template('user.html',name = name)
+    user = request.args.get('name')
+    return render_template('user.html',name = user)
 
 if __name__ == '__main__' :
     app.run(debug=True) 
