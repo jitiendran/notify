@@ -52,7 +52,7 @@ body header .link-wrap {
 body header .link-wrap a {
   padding: 0.2em 0.5em;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   font-size: 1.5em;
 }
@@ -65,5 +65,25 @@ body header .link-wrap a:focus {
   /* this is important */
   border: 5px solid transparent;
   border-radius: 0.5em;
+}
+
+body header .profile-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+body header .profile-wrap img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+body header .profile-wrap h4 {
+  font-size: 1.5em;
 }
 /*# sourceMappingURL=user.css.map */
