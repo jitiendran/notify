@@ -2,6 +2,7 @@ from os import name
 from flask import Flask,request,redirect
 from flask.helpers import url_for
 from flask.templating import render_template
+from datetime import date
 import pymongo
 from bson import json_util
 import json
@@ -13,6 +14,7 @@ Database = client.get_database('notify')
 if Database : 
     print("!!database connected!!")
 SampleTable = Database.SampleTable
+TaskTable = Database.TaskTable
 
 @app.route('/')
 def index() :
@@ -40,8 +42,16 @@ def login() :
 
 @app.route('/User',methods=['GET'])
 def User() :
+    today = date.today()
     user = request.args.get('name')
-    return render_template('user.html',name = user)
+    query = TaskTable.find({"Date": str(today)})
+    obj = json.loads(json_util.dumps(query))
+    task = []
+    # k = 0
+    for i in obj : 
+        task.append(str(i['Task']))
+        
+    return render_template('user.html',name = user,progress = 10,tasks = task)
 
 if __name__ == '__main__' :
     app.run(debug=True) 

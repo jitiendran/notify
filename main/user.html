@@ -28,9 +28,26 @@
         <a href="#">Pending</a>
       </div>
       <div class="profile-wrap">
-        <img src="" alt="" />
+        <img src="../static/images/panda.jpg" alt="" />
         <h4>{{name}}</h4>
       </div>
     </header>
+    <main>
+      <div class="today">
+        <h3>Today</h3>
+        <div class="col-name">
+          <p>S.No</p>
+          <p>Tasks</p>
+        </div>
+        <div class="tasks" id="tasks" data-tasks="{{tasks}}">
+          {%for i in range(tasks | length)%}
+          <div class="task-content">
+            <p>{{i+1}}</p>
+            <p>{{tasks[i]}}</p>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </main>
   </body>
 </html>

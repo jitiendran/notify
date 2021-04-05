@@ -86,4 +86,80 @@ body header .profile-wrap img {
 body header .profile-wrap h4 {
   font-size: 1.5em;
 }
+
+body main {
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body main .today {
+  width: 70%;
+}
+
+body main .today h3 {
+  font-size: 1.7em;
+}
+
+body main .today .col-name {
+  margin-top: 1em;
+  padding: 0.6em 1em;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+}
+
+body main .today .col-name p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+body main .today .col-name p:nth-child(1) {
+  width: 20%;
+}
+
+body main .today .col-name p:nth-child(2) {
+  width: 80%;
+}
+
+body main .today .tasks {
+  width: 100%;
+  padding: 0.6em 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .today .tasks .task-content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom-width: 80%;
+  border-bottom: 3px solid gainsboro;
+}
+
+body main .today .tasks .task-content p {
+  padding: 0.5em 0em;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+body main .today .tasks .task-content p:nth-child(1) {
+  width: 20%;
+}
+
+body main .today .tasks .task-content p:nth-child(2) {
+  width: 80%;
+}
 /*# sourceMappingURL=user.css.map */
