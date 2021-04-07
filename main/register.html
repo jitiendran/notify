@@ -18,9 +18,9 @@
         <div class="img-wrap"></div>
         <div class="text-wrap">
           <div class="title">
-            <h3>Login</h3>
+            <h3>SignUp</h3>
           </div>
-          <form action="/login" method="post">
+          <form action="/register" method="post">
             <div class="col">
               <label>Username</label>
               <input type="text" name="Username" />
@@ -29,11 +29,11 @@
               <label>Password</label>
               <input type="password" name="Password" />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">SignUp</button>
             <hr />
             <div class="row">
-              <p>Don't have an account ?</p>
-              <a href="{{url_for('register')}}">Signup</a>
+              <p>Already have an account ?</p>
+              <a href="{{url_for('index')}}">Signin</a>
             </div>
           </form>
         </div>

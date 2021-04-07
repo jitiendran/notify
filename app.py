@@ -14,21 +14,26 @@ Database = client.get_database('notify')
 if Database : 
     print("!!database connected!!")
 SampleTable = Database.SampleTable
+UserTable = ''
 TaskTable = Database.TaskTable
 
 @app.route('/')
 def index() :
     return render_template('index.html',style='./static/styles/style.css',icon='./static/images/icon.png')
-@app.route('/register')
+
+@app.route('/signup')
+def register():
+    return render_template('register.html',style='./static/styles/style.css',icon='./static/images/icon.png')
+@app.route('/register',methods=['POST'])
 def signup():
     queryObject = {
-        'Username' : 'Jitiendran',
-        'Email' : '',
-        'Image' : '',
-        'Password' : '123'
+        'Username' : request.form['Username'],
+        'Password' : request.form['Password']
     }
+    #creating a collection on username for storing tasks
+    UserTable = Database.request.form['Username']
     query = SampleTable.insert_one(queryObject)
-    return "Data inserted !!!"
+    return redirect(url_for('User',name = request.form['Username']))
 
 @app.route('/login',methods=['POST'])
 def login() : 
