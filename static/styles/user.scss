@@ -60,33 +60,49 @@ body {
   }
   main {
     padding: 1em;
-    display: flex;
     .today {
       width: 70%;
       h3 {
         font-size: 1.7em;
       }
-      .col-name {
-        margin-top: 1em;
-        padding: 0.6em 1em;
-        width: 100%;
-        background: linear-gradient(to right, #00c6ff, #0072ff);
+      .row {
         display: flex;
-        border-radius: 20px;
-        p {
-          color: #fff;
-          font-weight: 500;
-          font-size: 1.5em;
-          &:nth-child(1) {
-            width: 20%;
+        align-items: center;
+        .col-name {
+          margin-top: 1em;
+          padding: 0.6em 1em;
+          width: 100%;
+          background: linear-gradient(to right, #00c6ff, #0072ff);
+          display: flex;
+          border-radius: 20px;
+          p {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.5em;
+            &:nth-child(1) {
+              width: 20%;
+            }
+            &:nth-child(2) {
+              width: 80%;
+            }
           }
-          &:nth-child(2) {
-            width: 80%;
+        }
+        .create-wrap {
+          padding: 0.6em 1em;
+          margin-top: 1em;
+          span {
+            font-size: 2.5em;
+            font-weight: 500;
+            &:hover {
+              cursor: pointer;
+              border-radius: 50%;
+              box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.2);
+            }
           }
         }
       }
       .tasks {
-        width: 100%;
+        width: 90%;
         padding: 0.6em 1em;
         display: flex;
         flex-direction: column;
@@ -104,6 +120,21 @@ body {
               width: 80%;
             }
           }
+          button {
+            outline: none;
+            border: none;
+            background: none;
+            font-size: 1.3em;
+            font-weight: 500;
+            cursor: pointer;
+            a {
+              color: #000;
+              text-decoration: none;
+              &:hover {
+                color: red;
+              }
+            }
+          }
           border-bottom-width: 80%;
           border-bottom: 3px solid gainsboro;
         }
@@ -111,5 +142,84 @@ body {
     }
     // .right {
     // }
+  }
+  .pop-up {
+    position: absolute;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+    .pop-wrapper {
+      background: white;
+      border-radius: 20px;
+      width: 33em;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        padding: 0.5em 1em;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        h3 {
+          color: #fff;
+          font-size: 1.5em;
+        }
+        button {
+          outline: none;
+          border: none;
+          font-size: 1.3em;
+          color: #fff;
+          font-weight: 700;
+          background: none;
+          cursor: pointer;
+        }
+      }
+      form {
+        padding: 1.5em;
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 1em;
+          label {
+            font-size: 1.35em;
+            font-weight: 500;
+          }
+          input {
+            outline: none;
+            border: 2px solid rgb(189, 188, 188);
+            border-radius: 0.3em;
+            width: 16em;
+            font-size: 1.2em;
+            padding: 0.3em 0.75em;
+            &:focus {
+              border: 2px solid #00c6ff;
+            }
+          }
+          input[type="date"] {
+            width: 19.7em;
+          }
+        }
+        .btn-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          button {
+            width: 7em;
+            outline: none;
+            border: none;
+            padding: 0.3em 1em;
+            font-size: 1.4em;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            border-radius: 0.3em;
+          }
+        }
+      }
+    }
   }
 }

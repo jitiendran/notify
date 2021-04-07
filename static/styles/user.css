@@ -89,9 +89,6 @@ body header .profile-wrap h4 {
 
 body main {
   padding: 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 body main .today {
@@ -102,7 +99,16 @@ body main .today h3 {
   font-size: 1.7em;
 }
 
-body main .today .col-name {
+body main .today .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .today .row .col-name {
   margin-top: 1em;
   padding: 0.6em 1em;
   width: 100%;
@@ -114,22 +120,39 @@ body main .today .col-name {
   border-radius: 20px;
 }
 
-body main .today .col-name p {
+body main .today .row .col-name p {
   color: #fff;
   font-weight: 500;
   font-size: 1.5em;
 }
 
-body main .today .col-name p:nth-child(1) {
+body main .today .row .col-name p:nth-child(1) {
   width: 20%;
 }
 
-body main .today .col-name p:nth-child(2) {
+body main .today .row .col-name p:nth-child(2) {
   width: 80%;
 }
 
+body main .today .row .create-wrap {
+  padding: 0.6em 1em;
+  margin-top: 1em;
+}
+
+body main .today .row .create-wrap span {
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+body main .today .row .create-wrap span:hover {
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.2);
+}
+
 body main .today .tasks {
-  width: 100%;
+  width: 90%;
   padding: 0.6em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -161,5 +184,139 @@ body main .today .tasks .task-content p:nth-child(1) {
 
 body main .today .tasks .task-content p:nth-child(2) {
   width: 80%;
+}
+
+body main .today .tasks .task-content button {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 1.3em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+body main .today .tasks .task-content button a {
+  color: #000;
+  text-decoration: none;
+}
+
+body main .today .tasks .task-content button a:hover {
+  color: red;
+}
+
+body .pop-up {
+  position: absolute;
+  height: 100vh;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+}
+
+body .pop-up .pop-wrapper {
+  background: white;
+  border-radius: 20px;
+  width: 33em;
+}
+
+body .pop-up .pop-wrapper .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: -webkit-gradient(linear, left top, right top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  padding: 0.5em 1em;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+body .pop-up .pop-wrapper .header h3 {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+body .pop-up .pop-wrapper .header button {
+  outline: none;
+  border: none;
+  font-size: 1.3em;
+  color: #fff;
+  font-weight: 700;
+  background: none;
+  cursor: pointer;
+}
+
+body .pop-up .pop-wrapper form {
+  padding: 1.5em;
+}
+
+body .pop-up .pop-wrapper form .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+body .pop-up .pop-wrapper form .row label {
+  font-size: 1.35em;
+  font-weight: 500;
+}
+
+body .pop-up .pop-wrapper form .row input {
+  outline: none;
+  border: 2px solid #bdbcbc;
+  border-radius: 0.3em;
+  width: 16em;
+  font-size: 1.2em;
+  padding: 0.3em 0.75em;
+}
+
+body .pop-up .pop-wrapper form .row input:focus {
+  border: 2px solid #00c6ff;
+}
+
+body .pop-up .pop-wrapper form .row input[type="date"] {
+  width: 19.7em;
+}
+
+body .pop-up .pop-wrapper form .btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .pop-up .pop-wrapper form .btn-wrap button {
+  width: 7em;
+  outline: none;
+  border: none;
+  padding: 0.3em 1em;
+  font-size: 1.4em;
+  background: -webkit-gradient(linear, left top, right top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  border-radius: 0.3em;
 }
 /*# sourceMappingURL=user.css.map */

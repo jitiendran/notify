@@ -17,6 +17,27 @@
     <title>Notify</title>
   </head>
   <body>
+    <div class="pop-up">
+      <div class="pop-wrapper">
+        <div class="header">
+          <h3>Task</h3>
+          <button id="close">X</button>
+        </div>
+        <form action="/tasks" method="post">
+          <div class="row">
+            <label for="">Tasks</label>
+            <input type="text" name="Task" />
+          </div>
+          <div class="row">
+            <label for="">Date</label>
+            <input type="date" name="Date" />
+          </div>
+          <div class="btn-wrap">
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <header>
       <div class="icon-wrap">
         <img src="../static/images/icon.png" alt="" />
@@ -35,19 +56,31 @@
     <main>
       <div class="today">
         <h3>Today</h3>
-        <div class="col-name">
-          <p>S.No</p>
-          <p>Tasks</p>
+        <div class="row">
+          <div class="col-name">
+            <p>S.No</p>
+            <p>Tasks</p>
+          </div>
+          <div class="create-wrap">
+            <span class="material-icons" onclick="openPopup()"> add </span>
+          </div>
         </div>
         <div class="tasks" id="tasks" data-tasks="{{tasks}}">
           {%for i in range(tasks | length)%}
           <div class="task-content">
+            <!-- <form action="/delete" method="post">
+              
+            </form> -->
             <p>{{i+1}}</p>
             <p>{{tasks[i]}}</p>
+            <button>
+              <a href="{{url_for('delete',task=tasks[i])}}">X</a>
+            </button>
           </div>
           {%endfor%}
         </div>
       </div>
     </main>
+    <script src="../static/js/user.js"></script>
   </body>
 </html>
