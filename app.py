@@ -1,35 +1,24 @@
 from flask import Flask,request,redirect
 from flask.helpers import url_for
 from flask.templating import render_template
-from datetime import date,datetime, timedelta
-from server import sendEmail
+from datetime import date
 import pymongo
 from bson import json_util
 import json
-from flask_mail import Message,Mail
 
 app = Flask(__name__,template_folder='main')
-mail = Mail(app)
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'ironman2640@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ironman@123'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
 
 url = 'mongodb+srv://jiji:123@cluster0.md3ui.mongodb.net/test'
 logged = False
 client = pymongo.MongoClient(url)
-Username = 'name'
 Database = client.get_database('notify')
 if Database : 
     print("!!database connected!!")
 
-SampleTable = Database.SampleTable
+Username = 'name'
+UserTable = Database.UserTable
 TaskTable = Database.TaskTable
-UserTable = Database['name']
 
 @app.route('/')
 def index() :
@@ -49,7 +38,7 @@ def signup():
         'Password' : request.form['Password']
     }
     #creating a collection on username for storing tasks
-    query = SampleTable.insert_one(queryObject)
+    query = UserTable.insert_one(queryObject)
     print(request.form['Username'])
     return redirect(url_for('User',name = request.form['Username']))
 
@@ -57,22 +46,27 @@ def signup():
 @app.route('/login',methods=['POST'])
 def login() : 
     queryObj = {"Username" : request.form['Username']}
-    query = SampleTable.find_one(queryObj)
+    query = UserTable.find_one(queryObj)
     obj = json.loads(json_util.dumps(query))
     return redirect(url_for('User',name = obj['Username']))
 
-# print('This is the object : ',obj)
-# Username = obj['Username']
 
 
 @app.route('/tasks',methods=['POST'])
 def createTasks():
+    print('Username : ',Username)
+    user = UserTable.find_one({"Username": Username})
+    obj = json.loads(json_util.dumps(user))
+    print('The object is : ',obj)
     queryObject = {
         'Task' : request.form['Task'],
-        'Date' : request.form['Date']
+        'Date' : request.form['Date'],
+        'Email' : obj['Email'],
+        'IsSent' : False
     }
-    query = UserTable.insert_one(queryObject)
+    query = TaskTable.insert_one(queryObject)
     return redirect(url_for('User',name=Username))
+
 
 @app.route('/User',methods=['GET'])
 def User() :
@@ -80,37 +74,19 @@ def User() :
     user = request.args.get('name')
     global Username
     Username = user
-    global UserTable
-    UserTable = Database[user]
-    tomorrow = today + timedelta(1)
-    dateToSend = str(tomorrow)
-    print(dateToSend)
-    users = SampleTable.find_one({"Username": Username})
-    obj1 = json.loads(json_util.dumps(users))
-    email = obj1['Email']
-    query1 = UserTable.find({"Date": dateToSend})
-    obj2 = json.loads(json_util.dumps(query1))
-    print("This is ",obj2)
-    taskArray = []
-    for i in obj2:
-        taskArray.append(str(i['Task']))
-    for task in taskArray :
-        print(email,' : ',task) 
-        sendEmail(email,task)
-    # print(Username)
-    query = UserTable.find({"Date": str(today)})
+    query = TaskTable.find({"Date": str(today)})
     obj = json.loads(json_util.dumps(query))
     task = []
-    # k = 0
     for i in obj : 
         task.append(str(i['Task']))
 
     return render_template('user.html',name = user,progress = 10,tasks = task)
 
+
 @app.route('/Delete',methods=['GET'])
 def delete():
     task = request.args.get('task')
-    query = UserTable.delete_one({"Task": task})
+    query = TaskTable.delete_one({"Task": task})
     print('Hello this is delete')
     return redirect(url_for('User',name=Username))
 
