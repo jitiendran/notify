@@ -44,7 +44,7 @@ def email():
     for i in obj : 
         if(i['IsSent'] == False) :
             sendEmail(i['Email'],i['Task'])
-            filter = {'Email' : i['Email']}
+            filter = {'Task' : i['Task']}
             newValues = {"$set" : {'IsSent' : True}}
             TaskTable.update_one(filter,newValues)
     # print(taskArray)
