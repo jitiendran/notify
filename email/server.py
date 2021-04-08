@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_mail import Message,Mail
-from datetime import date, datetime, timedelta
+from datetime import date,timedelta
 import pymongo
 from bson import json_util
 import json
