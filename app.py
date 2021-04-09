@@ -6,11 +6,14 @@ from datetime import date
 import pymongo
 from bson import json_util
 import json
+from privacy import mongoConnString,secretKey
+
 
 app = Flask(__name__,template_folder='main')
+app.secret_key = secretKey
 
 
-url = 'mongodb+srv://jiji:123@cluster0.md3ui.mongodb.net/test'
+url = mongoConnString
 client = pymongo.MongoClient(url)
 Database = client.get_database('notify')
 

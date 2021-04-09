@@ -4,20 +4,20 @@ from datetime import date,timedelta
 import pymongo
 from bson import json_util
 import json
+from privacy import mongoConnString,myMail,emailPassword
 
 app = Flask(__name__)
 mail = Mail(app)
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'ironman2640@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ironman@123'
+app.config['MAIL_USERNAME'] = myMail
+app.config['MAIL_PASSWORD'] = emailPassword
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
-url = 'mongodb+srv://jiji:123@cluster0.md3ui.mongodb.net/test'
-logged = False
+url = mongoConnString
 client = pymongo.MongoClient(url)
 Database = client.get_database('notify')
 if Database : 
@@ -27,11 +27,11 @@ TaskTable = Database.TaskTable
 
 def sendEmail(recievers,message):
     msg = Message(
-        'Task Notification',
-        sender='ironman2640@gmail.com',
+        'Notify',
+        sender= myMail,
         recipients=[recievers]
     )
-    msg.body = message+'due tommorrow!!'
+    msg.body = message+' due tommorrow!!'
     mail.send(msg)
 
 @app.route('/')
@@ -47,8 +47,7 @@ def email():
             filter = {'Task' : i['Task']}
             newValues = {"$set" : {'IsSent' : True}}
             TaskTable.update_one(filter,newValues)
-    # print(taskArray)
     return "sent"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=4200,debug=True)
