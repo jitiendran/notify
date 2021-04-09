@@ -50,4 +50,4 @@ def email():
     return "sent"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=4200,debug=True)
+    app.run(debug=True)
