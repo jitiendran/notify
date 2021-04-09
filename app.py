@@ -90,5 +90,10 @@ def delete():
     return redirect(url_for('User',name=session['Username']))
 
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 if __name__ == '__main__' :
     app.run(debug=True) 
